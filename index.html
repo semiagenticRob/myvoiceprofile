@@ -258,6 +258,19 @@
       margin-bottom: 32px;
     }
 
+    .what-you-get-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .what-you-get-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .docs-grid {
       display: grid;
       gap: 16px;
@@ -403,7 +416,6 @@
     /* ── Profile teaser ── */
 
     .profile-teaser {
-      margin-top: 36px;
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--card-bg);
@@ -966,55 +978,63 @@
   <section class="what-you-get">
     <div class="container">
       <p class="section-label">What you receive</p>
-      <div class="docs-grid">
+      <div class="what-you-get-grid">
 
-        <div class="doc-card">
-          <div class="doc-card-header">
-            <span class="doc-number">1</span>
-            <h3>Voice Profile Document</h3>
+        <div class="what-you-get-left">
+          <div class="docs-grid">
+
+            <div class="doc-card">
+              <div class="doc-card-header">
+                <span class="doc-number">1</span>
+                <h3>Voice Profile Document</h3>
+              </div>
+              <p>
+                A deep analysis of how you communicate — your sentence rhythm, structural patterns,
+                go-to metaphors, emotional register, vocabulary tendencies. A reference file you keep
+                and update over time. The document that keeps any AI honest about who you are.
+              </p>
+            </div>
+
+            <div class="doc-card">
+              <div class="doc-card-header">
+                <span class="doc-number">2</span>
+                <h3>Voice Starter Prompt</h3>
+              </div>
+              <p>
+                A short, copy-paste prompt you drop into Claude, ChatGPT, or any other AI tool before
+                you start writing. One paragraph. Works immediately. The difference between AI that
+                writes like the internet and AI that writes like you.
+              </p>
+            </div>
+
           </div>
-          <p>
-            A deep analysis of how you communicate — your sentence rhythm, structural patterns,
-            go-to metaphors, emotional register, vocabulary tendencies. A reference file you keep
-            and update over time. The document that keeps any AI honest about who you are.
-          </p>
         </div>
 
-        <div class="doc-card">
-          <div class="doc-card-header">
-            <span class="doc-number">2</span>
-            <h3>Voice Starter Prompt</h3>
-          </div>
-          <p>
-            A short, copy-paste prompt you drop into Claude, ChatGPT, or any other AI tool before
-            you start writing. One paragraph. Works immediately. The difference between AI that
-            writes like the internet and AI that writes like you.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="profile-teaser">
-        <div class="profile-teaser-label">Sample — Voice Profile Document</div>
-        <div class="profile-teaser-inner">
-          <div class="pt-row">
-            <div class="pt-key">Rhythm</div>
-            <div class="pt-val blurred">Short declarative sentences under pressure. Clause stacking when building an argument. Paragraph breaks used as punctuation — the white space carries as much weight as the words. Sentences get shorter as the point gets closer.</div>
-          </div>
-          <div class="pt-row">
-            <div class="pt-key">Markers</div>
-            <div class="pt-val blurred">Conversational pivots ("Here's the thing.", "So."). Rhetorical callbacks. Direct address without warning. Strong preference for concrete nouns over abstract ones. Avoids hedging language — rarely uses "perhaps", "might", "could be".</div>
-          </div>
-          <div class="pt-row">
-            <div class="pt-key">Argument shape</div>
-            <div class="pt-val blurred">Opens with a scene or a specific incident, not a thesis. The claim arrives late, after the evidence has accumulated. Proof hierarchy: personal experience first, then structural observation, then external validation. Inversion is the preferred rhetorical device.</div>
-          </div>
-          <div class="pt-row">
-            <div class="pt-key">OCEAN</div>
-            <div class="pt-val blurred">High Openness (novel framing, cross-domain analogies). High Conscientiousness in structure, moderate in tone. Low Agreeableness in argumentation — pushes against consensus without apology. High Extraversion in directness.</div>
+        <div class="what-you-get-right">
+          <div class="profile-teaser">
+            <div class="profile-teaser-label">Sample — Voice Profile Document</div>
+            <div class="profile-teaser-inner">
+              <div class="pt-row">
+                <div class="pt-key">Rhythm</div>
+                <div class="pt-val blurred">Short declarative sentences under pressure. Clause stacking when building an argument. Paragraph breaks used as punctuation — the white space carries as much weight as the words. Sentences get shorter as the point gets closer.</div>
+              </div>
+              <div class="pt-row">
+                <div class="pt-key">Markers</div>
+                <div class="pt-val blurred">Conversational pivots ("Here's the thing.", "So."). Rhetorical callbacks. Direct address without warning. Strong preference for concrete nouns over abstract ones. Avoids hedging language — rarely uses "perhaps", "might", "could be".</div>
+              </div>
+              <div class="pt-row">
+                <div class="pt-key">Argument shape</div>
+                <div class="pt-val blurred">Opens with a scene or a specific incident, not a thesis. The claim arrives late, after the evidence has accumulated. Proof hierarchy: personal experience first, then structural observation, then external validation. Inversion is the preferred rhetorical device.</div>
+              </div>
+              <div class="pt-row">
+                <div class="pt-key">OCEAN</div>
+                <div class="pt-val blurred">High Openness (novel framing, cross-domain analogies). High Conscientiousness in structure, moderate in tone. Low Agreeableness in argumentation — pushes against consensus without apology. High Extraversion in directness.</div>
+              </div>
+            </div>
+            <div class="profile-teaser-blur-note">Full profile delivered to your inbox within 24 hours.</div>
           </div>
         </div>
-        <div class="profile-teaser-blur-note">Full profile delivered to your inbox within 24 hours.</div>
+
       </div>
     </div>
   </section>
