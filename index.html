@@ -353,6 +353,71 @@
       line-height: 1.65;
     }
 
+    /* ── Methodology ── */
+
+    .methodology {
+      border-top: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+
+    .methodology-intro {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .method-grid {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .method-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 28px 24px;
+      background: var(--bg);
+    }
+
+    .method-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .method-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .method-card p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .method-card strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .methodology-note {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      background: var(--bg);
+      border-radius: 0 6px 6px 0;
+    }
+
     /* ── Pricing ── */
 
     .pricing {
@@ -746,11 +811,13 @@
         <div class="step">
           <span class="step-num">2</span>
           <div class="step-content">
-            <h3>We analyze everything</h3>
+            <h3>We analyze everything — scientifically</h3>
             <p>
-              We read your transcripts and text through the lens of an expert linguist:
-              sentence structure, pacing, transitions, argument shape, tonal range.
-              We're looking for the patterns that make your communication identifiably yours.
+              We run your content through a structured linguistic analysis drawn from forensic linguistics,
+              computational psycholinguistics, and personality science. Three dimensions: your idiolect
+              (the vocabulary and syntax patterns unique to you), your rhetorical architecture
+              (how you build arguments), and your psychographic profile (scored from observable
+              speech behavior using the Big Five OCEAN framework). Not intuition — measurable evidence.
             </p>
           </div>
         </div>
@@ -768,6 +835,63 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="methodology">
+    <div class="container">
+      <p class="section-label">What we actually measure</p>
+      <p class="methodology-intro">
+        Most AI voice tools read your writing style. We map your linguistic fingerprint —
+        the same framework used in forensic authorship attribution and computational personality science.
+      </p>
+      <div class="method-grid">
+
+        <div class="method-card">
+          <div class="method-num">01</div>
+          <h3>Idiolect Extraction</h3>
+          <p>
+            Every speaker leaves a fingerprint: the vocabulary they reach for under pressure,
+            the sentence structures they default to, the discourse markers that stitch their thinking together,
+            the words they conspicuously avoid. Two decades of forensic and computational linguistics research
+            has shown these markers identify individual communicators with <strong>60–91% accuracy</strong>.
+            We catalog each pattern and flag whether it holds across contexts (trait-level) or only surfaces
+            in specific formats (state-level) — the difference between a usable profile and an anecdotal one.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">02</div>
+          <h3>Rhetorical Architecture</h3>
+          <p>
+            Beyond vocabulary, we map how you build a case. Do you open with data, analogy, or inversion?
+            What counts as proof in your hierarchy of evidence? How do you handle disagreement?
+            These structural patterns are among the most cognitively stable features of a communicator —
+            persisting across topics, audiences, and formats. We extract them as <strong>repeatable structural sequences</strong>,
+            not vague descriptors like "conversational" or "direct."
+          </p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">03</div>
+          <h3>Psychographic Scoring</h3>
+          <p>
+            We apply the <strong>Big Five OCEAN framework</strong> — the most empirically validated model
+            in personality psychology, cross-culturally replicated across decades of research — scored
+            directly from observable speech behavior, not surveys or self-reports. Pitch variability,
+            speaking rate, and prosodic patterns predict perceived personality traits at <strong>70%+ accuracy</strong>.
+            We layer in four dimensions OCEAN misses: how you establish what's true, how you claim authority,
+            how you calibrate to your audience, and when you push against consensus.
+          </p>
+        </div>
+
+      </div>
+      <p class="methodology-note">
+        When multiple recordings are available, we perform a cross-corpus synthesis — the same methodological
+        principle used in forensic authorship attribution — separating stable cognitive patterns from
+        format-specific adaptations. The result is a profile built from what your language reveals, not what you'd say about yourself.
+      </p>
     </div>
   </section>
 
