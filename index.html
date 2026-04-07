@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Voice Profile — AI that actually sounds like you</title>
+  <meta name="description" content="Send us your interviews, articles, and videos. We build the profile that lets any AI write in your exact voice — in 24 hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAF9F6;
+      --ink: #1C1C1C;
+      --ink-muted: #5A5A5A;
+      --ink-light: #9A9A9A;
+      --accent: #C97A2A;
+      --accent-hover: #A86218;
+      --border: #E4E2DC;
+      --card-bg: #FFFFFF;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+
+    .container {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    /* ── Nav ── */
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-cta {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      color: var(--accent-hover);
+    }
+
+    /* ── Hero ── */
+
+    .hero {
+      padding: 80px 0 56px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .hero-note {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+    }
+
+    /* ── Problem ── */
+
+    .problem {
+      border-top: 1px solid var(--border);
+      padding: 56px 0;
+    }
+
+    .problem p {
+      font-family: 'Lora', serif;
+      font-size: 1.1875rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+    }
+
+    .problem p:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── What you get ── */
+
+    .what-you-get {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 32px;
+    }
+
+    .docs-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .doc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 28px 24px;
+    }
+
+    .doc-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .doc-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .doc-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .doc-card p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      padding-left: 40px;
+    }
+
+    /* ── How it works ── */
+
+    .how-it-works {
+      border-top: 1px solid var(--border);
+    }
+
+    .steps {
+      display: grid;
+      gap: 32px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .step-content h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Pricing ── */
+
+    .pricing {
+      border-top: 1px solid var(--border);
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 520px) {
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .pricing-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin: 12px 0 16px;
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .pricing-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn-card {
+      display: block;
+      text-align: center;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 10px 0;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-card:hover,
+    .pricing-card.featured .btn-card {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .pricing-note {
+      font-size: 0.875rem;
+      color: var(--ink-light);
+      text-align: center;
+    }
+
+    /* ── FAQ ── */
+
+    .faq {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .faq-item h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    /* ── CTA Band ── */
+
+    .cta-band {
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-band p {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      margin-bottom: 32px;
+    }
+
+    /* ── Footer ── */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer p {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+    }
+
+    footer a {
+      color: var(--ink-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a class="wordmark" href="/">My Voice Profile</a>
+      <a class="nav-cta" href="#pricing">Get started →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Voice profile documents</p>
+      <h1>Your voice took years to develop.<br><em>Don't let AI flatten it.</em></h1>
+      <p class="hero-sub">
+        Send us the interviews you've given, the articles you've written, the videos you've recorded.
+        We build two documents that let any AI — Claude, ChatGPT, whatever — write in your exact voice.
+        Not a generic AI voice. Yours.
+      </p>
+      <a href="#pricing" class="btn-primary">Get my voice profile</a>
+      <span class="hero-note">Delivered within 24 hours &nbsp;·&nbsp; Works with any AI tool</span>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="container">
+      <p>
+        Every podcaster, founder, and creator we talk to says the same thing:
+        <strong>"The AI drafts are fine, but they don't sound like me."</strong>
+        The cadence is off. The metaphors are generic. The thing that makes their communication distinctive — gone.
+      </p>
+      <p>
+        The problem isn't the AI. It's that the AI doesn't know you. It hasn't read everything you've ever written.
+        It doesn't know that you lead with questions, or that you always ground abstract ideas in a specific story,
+        or that your sentences get short right before you land the point.
+      </p>
+      <p>
+        That's what a voice profile does. It teaches the AI to <strong>read your patterns, not just mimic your topic.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="what-you-get">
+    <div class="container">
+      <p class="section-label">What you receive</p>
+      <div class="docs-grid">
+
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <span class="doc-number">1</span>
+            <h3>Voice Profile Document</h3>
+          </div>
+          <p>
+            A deep analysis of how you communicate — your sentence rhythm, structural patterns,
+            go-to metaphors, emotional register, vocabulary tendencies. A reference file you keep
+            and update over time. The document that keeps any AI honest about who you are.
+          </p>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <span class="doc-number">2</span>
+            <h3>Voice Starter Prompt</h3>
+          </div>
+          <p>
+            A short, copy-paste prompt you drop into Claude, ChatGPT, or any other AI tool before
+            you start writing. One paragraph. Works immediately. The difference between AI that
+            writes like the internet and AI that writes like you.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works">
+    <div class="container">
+      <p class="section-label">How it works</p>
+      <div class="steps">
+
+        <div class="step">
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <h3>Send us your links</h3>
+            <p>
+              Podcast interviews, YouTube videos, articles, newsletters — whatever you've made
+              that represents how you actually think and communicate. Mix and match.
+              The more variety, the richer the profile.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <h3>We analyze everything</h3>
+            <p>
+              We read your transcripts and text through the lens of an expert linguist:
+              sentence structure, pacing, transitions, argument shape, tonal range.
+              We're looking for the patterns that make your communication identifiably yours.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <h3>You get both documents within 24 hours</h3>
+            <p>
+              The Voice Profile Document and Voice Starter Prompt land in your inbox.
+              Drop the prompt into any AI. Start generating content that sounds like you wrote it —
+              because in a meaningful sense, you did.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section-label">Pricing</p>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <h3>Voice Starter</h3>
+          <div class="price">$47 <span>one time</span></div>
+          <ul class="pricing-features">
+            <li>Up to 5 URLs analyzed</li>
+            <li>Voice Profile Document</li>
+            <li>Voice Starter Prompt</li>
+            <li>Delivered within 24 hours</li>
+          </ul>
+          <!-- Replace STRIPE_LINK_STARTER with your actual Stripe payment link -->
+          <a href="STRIPE_LINK_STARTER" class="btn-card">Get started</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="featured-badge">Most popular</span>
+          <h3>Voice Pro</h3>
+          <div class="price">$97 <span>one time</span></div>
+          <ul class="pricing-features">
+            <li>Up to 20 URLs analyzed</li>
+            <li>Voice Profile Document</li>
+            <li>Voice Starter Prompt</li>
+            <li>One sample piece in your voice</li>
+            <li>Delivered within 24 hours</li>
+          </ul>
+          <!-- Replace STRIPE_LINK_PRO with your actual Stripe payment link -->
+          <a href="STRIPE_LINK_PRO" class="btn-card">Get started</a>
+        </div>
+
+      </div>
+      <p class="pricing-note">One-time payment. No subscription. Documents are yours to keep and reuse.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-label">Common questions</p>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <h3>What kind of links can I send?</h3>
+          <p>
+            YouTube videos (interviews, talks, podcasts you've appeared on), podcast episodes,
+            blog posts, newsletter issues, published articles — anything where you're speaking
+            or writing in your authentic voice. Auto-captioned YouTube videos work great.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Which AI tools does the prompt work with?</h3>
+          <p>
+            Any of them — Claude, ChatGPT, Gemini, Perplexity, whatever you already use.
+            The Voice Starter Prompt is plain text. Paste it at the top of any conversation
+            and the AI inherits your voice for that session.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if I don't have many interviews or articles yet?</h3>
+          <p>
+            Five solid pieces is enough to produce a useful profile. Three long-form interviews
+            or podcast appearances will get you further than ten short social posts.
+            Depth matters more than volume.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What does "delivered within 24 hours" mean?</h3>
+          <p>
+            After you pay and submit your links, you'll receive both documents by email within
+            one business day. Most orders are turned around faster than that.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I update my profile later?</h3>
+          <p>
+            Yes — as your body of work grows, your voice evolves. You can order a profile refresh
+            anytime to incorporate new content. The documents get richer over time.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to sound like yourself?</h2>
+      <p>Your archive is the raw material. We'll turn it into something you can use every day.</p>
+      <a href="#pricing" class="btn-primary">Get my voice profile</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 My Voice Profile</p>
+      <p>Questions? <a href="mailto:hello@myvoiceprofile.com">hello@myvoiceprofile.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
