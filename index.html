@@ -307,6 +307,165 @@
       padding-left: 40px;
     }
 
+    /* ── Works with ── */
+
+    .works-with {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .works-with-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+
+    .works-with-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .works-with-logos img {
+      height: 22px;
+      width: auto;
+      opacity: 0.45;
+      filter: grayscale(1);
+      transition: opacity 0.15s;
+    }
+
+    .works-with-logos img:hover {
+      opacity: 0.7;
+    }
+
+    /* ── Before / After ── */
+
+    .before-after {
+      display: grid;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 600px) {
+      .before-after {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .ba-col {
+      border-radius: 8px;
+      padding: 22px 22px 20px;
+    }
+
+    .ba-before {
+      background: #F0EFED;
+      border: 1px solid var(--border);
+    }
+
+    .ba-after {
+      background: #FFF8F0;
+      border: 1px solid #E8C99A;
+    }
+
+    .ba-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .ba-before .ba-label { color: var(--ink-light); }
+    .ba-after .ba-label  { color: var(--accent); }
+
+    .ba-col p {
+      font-family: 'Lora', serif;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .ba-before p { color: var(--ink-muted); }
+    .ba-after p  { color: var(--ink); }
+
+    .ba-source {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* ── Profile teaser ── */
+
+    .profile-teaser {
+      margin-top: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-bg);
+      overflow: hidden;
+    }
+
+    .profile-teaser-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .profile-teaser-inner {
+      padding: 4px 0;
+    }
+
+    .pt-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .pt-row:last-child { border-bottom: none; }
+
+    .pt-key {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+
+    .pt-val {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .pt-val.blurred {
+      filter: blur(3.5px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .profile-teaser-blur-note {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 12px 20px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
     /* ── How it works ── */
 
     .how-it-works {
@@ -745,6 +904,14 @@
         </p>
         <a href="#pricing" class="btn-primary">Get my voice profile</a>
         <span class="hero-note">Delivered within 24 hours &nbsp;·&nbsp; Works with any AI tool</span>
+        <div class="works-with">
+          <span class="works-with-label">Works with</span>
+          <div class="works-with-logos">
+            <img src="assets/logo-claude.svg" alt="Claude" title="Claude" />
+            <img src="assets/logo-chatgpt.svg" alt="ChatGPT" title="ChatGPT" />
+            <img src="assets/logo-gemini.svg" alt="Google Gemini" title="Google Gemini" />
+          </div>
+        </div>
       </div>
       <div class="hero-image-col">
         <img src="assets/hero-person.png" alt="A confident communicator — the kind of voice worth preserving" />
@@ -768,6 +935,30 @@
       <p>
         That's what a voice profile does. It teaches the AI to <strong>read your patterns, not just mimic your topic.</strong>
       </p>
+
+      <div class="before-after">
+        <div class="ba-col ba-before">
+          <div class="ba-label">Without a voice profile</div>
+          <p>
+            AI tools have fundamentally transformed the software development landscape, enabling non-technical
+            entrepreneurs to build applications more efficiently than ever before. By leveraging large language
+            models, individuals can now describe their product requirements in natural language and receive
+            functional code output. The key to success is identifying a problem worth solving and utilizing
+            the available AI tools to execute your vision effectively.
+          </p>
+        </div>
+        <div class="ba-col ba-after">
+          <div class="ba-label">With your voice profile</div>
+          <p>
+            The bottleneck moved. It used to be execution — you either had to be technical or pay someone
+            who was, and either way the pipeline from idea to product was long, leaky, and expensive.
+            That's not the situation anymore. The scarce resource now is ideas. Taste. The ability to
+            identify a real problem, imagine a real solution, and have enough creative conviction and
+            chutzpah to push it into existence.
+          </p>
+          <div class="ba-source">— Robert Warren, via My Voice Profile</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -801,6 +992,29 @@
           </p>
         </div>
 
+      </div>
+
+      <div class="profile-teaser">
+        <div class="profile-teaser-label">Sample — Voice Profile Document</div>
+        <div class="profile-teaser-inner">
+          <div class="pt-row">
+            <div class="pt-key">Rhythm</div>
+            <div class="pt-val blurred">Short declarative sentences under pressure. Clause stacking when building an argument. Paragraph breaks used as punctuation — the white space carries as much weight as the words. Sentences get shorter as the point gets closer.</div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-key">Markers</div>
+            <div class="pt-val blurred">Conversational pivots ("Here's the thing.", "So."). Rhetorical callbacks. Direct address without warning. Strong preference for concrete nouns over abstract ones. Avoids hedging language — rarely uses "perhaps", "might", "could be".</div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-key">Argument shape</div>
+            <div class="pt-val blurred">Opens with a scene or a specific incident, not a thesis. The claim arrives late, after the evidence has accumulated. Proof hierarchy: personal experience first, then structural observation, then external validation. Inversion is the preferred rhetorical device.</div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-key">OCEAN</div>
+            <div class="pt-val blurred">High Openness (novel framing, cross-domain analogies). High Conscientiousness in structure, moderate in tone. Low Agreeableness in argumentation — pushes against consensus without apology. High Extraversion in directness.</div>
+          </div>
+        </div>
+        <div class="profile-teaser-blur-note">Full profile delivered to your inbox within 24 hours.</div>
       </div>
     </div>
   </section>
