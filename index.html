@@ -61,7 +61,7 @@
     /* ── Layout ── */
 
     .container {
-      max-width: 660px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -262,7 +262,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      align-items: start;
+      align-items: stretch;
     }
 
     @media (max-width: 640px) {
@@ -271,9 +271,20 @@
       }
     }
 
+    .what-you-get-left {
+      display: flex;
+      flex-direction: column;
+    }
+
     .docs-grid {
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
       gap: 16px;
+    }
+
+    .doc-card {
+      flex: 1;
     }
 
     .doc-card {
