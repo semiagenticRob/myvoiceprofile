@@ -106,7 +106,23 @@
     /* ── Hero ── */
 
     .hero {
-      padding: 80px 0 56px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      min-height: 540px;
+    }
+
+    .hero-text {
+      padding: 72px 40px 64px 0;
     }
 
     .hero-eyebrow {
@@ -120,7 +136,7 @@
 
     .hero h1 {
       font-family: 'Lora', serif;
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: clamp(1.875rem, 3.5vw, 2.625rem);
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.02em;
@@ -134,11 +150,10 @@
     }
 
     .hero-sub {
-      font-size: 1.0625rem;
+      font-size: 1rem;
       color: var(--ink-muted);
       line-height: 1.7;
-      max-width: 540px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
     .btn-primary {
@@ -163,6 +178,51 @@
       margin-top: 14px;
       font-size: 0.8125rem;
       color: var(--ink-light);
+    }
+
+    .hero-image-col {
+      position: relative;
+      align-self: stretch;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-image-col img {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom center;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28%, black 80%, transparent 100%),
+                          linear-gradient(to top, transparent 0%, black 8%);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to right, transparent 0%, black 28%, black 80%, transparent 100%),
+                  linear-gradient(to top, transparent 0%, black 8%);
+      mask-composite: intersect;
+    }
+
+    @media (max-width: 640px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: unset;
+      }
+      .hero-text {
+        padding: 52px 0 24px;
+        order: 1;
+      }
+      .hero-image-col {
+        order: 2;
+        max-height: 260px;
+        margin: 0 -24px;
+      }
+      .hero-image-col img {
+        max-width: 280px;
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      }
     }
 
     /* ── Problem ── */
@@ -600,16 +660,21 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div class="container">
-      <p class="hero-eyebrow">Voice profile documents</p>
-      <h1>Your voice took years to develop.<br><em>Don't let AI flatten it.</em></h1>
-      <p class="hero-sub">
-        Send us the interviews you've given, the articles you've written, the videos you've recorded.
-        We build two documents that let any AI — Claude, ChatGPT, whatever — write in your exact voice.
-        Not a generic AI voice. Yours.
-      </p>
-      <a href="#pricing" class="btn-primary">Get my voice profile</a>
-      <span class="hero-note">Delivered within 24 hours &nbsp;·&nbsp; Works with any AI tool</span>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Voice profile documents</p>
+        <h1>Your voice took years to develop.<br><em>Don't let AI flatten it.</em></h1>
+        <p class="hero-sub">
+          Send us the interviews you've given, the articles you've written, the videos you've recorded.
+          We build two documents that let any AI — Claude, ChatGPT, whatever — write in your exact voice.
+          Not a generic AI voice. Yours.
+        </p>
+        <a href="#pricing" class="btn-primary">Get my voice profile</a>
+        <span class="hero-note">Delivered within 24 hours &nbsp;·&nbsp; Works with any AI tool</span>
+      </div>
+      <div class="hero-image-col">
+        <img src="assets/hero-person.png" alt="A confident communicator — the kind of voice worth preserving" />
+      </div>
     </div>
   </section>
 
