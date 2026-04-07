@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Voice Profile — AI that actually sounds like you</title>
   <meta name="description" content="Send us your interviews, articles, and videos. We build the profile that lets any AI write in your exact voice — in 24 hours." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="My Voice Profile — AI that actually sounds like you" />
+  <meta property="og:description" content="Send us your interviews, articles, and videos. We build the profile that lets any AI write in your exact voice — in 24 hours." />
+  <meta property="og:url" content="https://myvoiceprofile.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://myvoiceprofile.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My Voice Profile — AI that actually sounds like you" />
+  <meta name="twitter:description" content="Send us your interviews, articles, and videos. We build the profile that lets any AI write in your exact voice — in 24 hours." />
+
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -288,7 +308,7 @@
     .pricing-grid {
       display: grid;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
 
     @media (min-width: 520px) {
@@ -389,9 +409,24 @@
       font-size: 0.875rem;
       color: var(--ink-light);
       text-align: center;
+      margin-bottom: 12px;
     }
 
-    /* ── FAQ ── */
+    .pricing-guarantee {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      text-align: center;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .pricing-guarantee strong {
+      color: var(--ink);
+    }
+
+    /* ── FAQ accordion ── */
 
     .faq {
       border-top: 1px solid var(--border);
@@ -399,21 +434,56 @@
 
     .faq-list {
       display: grid;
-      gap: 28px;
+      gap: 4px;
     }
 
-    .faq-item h3 {
+    .faq-list details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card-bg);
+      overflow: hidden;
+    }
+
+    .faq-list details[open] {
+      border-color: #D4CFCA;
+    }
+
+    .faq-list summary {
       font-family: 'Lora', serif;
       font-size: 1rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 8px;
+      padding: 16px 20px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
     }
 
-    .faq-item p {
+    .faq-list summary::-webkit-details-marker { display: none; }
+
+    .faq-list summary::after {
+      content: "+";
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--accent);
+      flex-shrink: 0;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-list details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
       font-size: 0.9375rem;
       color: var(--ink-muted);
       line-height: 1.65;
+      padding: 0 20px 18px;
     }
 
     /* ── CTA Band ── */
@@ -466,6 +536,56 @@
     footer a:hover {
       color: var(--ink-muted);
     }
+
+    /* ── Sticky CTA ── */
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .sticky-cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .sticky-cta a:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 480px) {
+      .sticky-cta {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        text-align: center;
+      }
+      .sticky-cta a {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -479,7 +599,7 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container">
       <p class="hero-eyebrow">Voice profile documents</p>
       <h1>Your voice took years to develop.<br><em>Don't let AI flatten it.</em></h1>
@@ -628,6 +748,7 @@
 
       </div>
       <p class="pricing-note">One-time payment. No subscription. Documents are yours to keep and reuse.</p>
+      <p class="pricing-guarantee"><strong>Not happy with your profile?</strong> Email us within 30 days and we'll refund you in full — no questions asked.</p>
     </div>
   </section>
 
@@ -637,55 +758,55 @@
       <p class="section-label">Common questions</p>
       <div class="faq-list">
 
-        <div class="faq-item">
-          <h3>What kind of links can I send?</h3>
-          <p>
+        <details>
+          <summary>What kind of links can I send?</summary>
+          <p class="faq-answer">
             YouTube videos (interviews, talks, podcasts you've appeared on), podcast episodes,
             blog posts, newsletter issues, published articles — anything where you're speaking
             or writing in your authentic voice. Auto-captioned YouTube videos work great.
           </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Which AI tools does the prompt work with?</h3>
-          <p>
+        <details>
+          <summary>Which AI tools does the prompt work with?</summary>
+          <p class="faq-answer">
             Any of them — Claude, ChatGPT, Gemini, Perplexity, whatever you already use.
             The Voice Starter Prompt is plain text. Paste it at the top of any conversation
             and the AI inherits your voice for that session.
           </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What if I don't have many interviews or articles yet?</h3>
-          <p>
+        <details>
+          <summary>What if I don't have many interviews or articles yet?</summary>
+          <p class="faq-answer">
             Five solid pieces is enough to produce a useful profile. Three long-form interviews
             or podcast appearances will get you further than ten short social posts.
             Depth matters more than volume.
           </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What does "delivered within 24 hours" mean?</h3>
-          <p>
+        <details>
+          <summary>What does "delivered within 24 hours" mean?</summary>
+          <p class="faq-answer">
             After you pay and submit your links, you'll receive both documents by email within
             one business day. Most orders are turned around faster than that.
           </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Can I update my profile later?</h3>
-          <p>
+        <details>
+          <summary>Can I update my profile later?</summary>
+          <p class="faq-answer">
             Yes — as your body of work grows, your voice evolves. You can order a profile refresh
             anytime to incorporate new content. The documents get richer over time.
           </p>
-        </div>
+        </details>
 
       </div>
     </div>
   </section>
 
   <!-- CTA Band -->
-  <section class="cta-band">
+  <section class="cta-band" id="cta-band">
     <div class="container">
       <h2>Ready to sound like yourself?</h2>
       <p>Your archive is the raw material. We'll turn it into something you can use every day.</p>
@@ -694,12 +815,42 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer id="footer">
     <div class="container">
       <p>© 2026 My Voice Profile</p>
       <p>Questions? <a href="mailto:hello@myvoiceprofile.com">hello@myvoiceprofile.com</a></p>
     </div>
   </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="#pricing">Get my voice profile →</a>
+  </div>
+
+  <script>
+    (function () {
+      var hero = document.getElementById('hero');
+      var footer = document.getElementById('footer');
+      var stickyCta = document.getElementById('sticky-cta');
+
+      function onScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var footerTop = footer.getBoundingClientRect().top;
+        var windowH = window.innerHeight;
+
+        var pastHero = heroBottom < 0;
+        var nearFooter = footerTop < windowH + 80;
+
+        if (pastHero && !nearFooter) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>

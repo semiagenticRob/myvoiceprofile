@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order confirmed — My Voice Profile</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    // Track purchase conversion
+    gtag('event', 'purchase', { event_category: 'conversion' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAF9F6;
+      --ink: #1C1C1C;
+      --ink-muted: #5A5A5A;
+      --ink-light: #9A9A9A;
+      --accent: #C97A2A;
+      --accent-hover: #A86218;
+      --border: #E4E2DC;
+      --card-bg: #FFFFFF;
+      --success: #2D7D46;
+      --success-bg: #EDF7F1;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .confirmation-header {
+      padding: 56px 0 40px;
+      text-align: center;
+    }
+
+    .checkmark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--success-bg);
+      color: var(--success);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .confirmation-header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .confirmation-header p {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 32px 32px;
+      margin-bottom: 40px;
+    }
+
+    .form-card h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .form-card .form-intro {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    label .hint {
+      font-weight: 400;
+      color: var(--ink-light);
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--ink);
+      line-height: 1.5;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-hint {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      margin-top: 6px;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover { background: var(--accent-hover); }
+
+    .privacy-note {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    .form-success .checkmark {
+      margin: 0 auto 16px;
+    }
+
+    .form-success h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .form-success p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+    }
+
+    .what-next {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 64px;
+    }
+
+    .what-next h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8125rem;
+      margin-bottom: 20px;
+    }
+
+    .next-steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .next-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .next-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .next-step p {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .next-step strong { color: var(--ink); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer p { font-size: 0.8125rem; color: var(--ink-light); }
+    footer a { color: var(--ink-light); text-decoration: none; }
+    footer a:hover { color: var(--ink-muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="wordmark" href="/">My Voice Profile</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="confirmation-header">
+      <div class="checkmark">✓</div>
+      <h1>Payment confirmed.<br>Now let's build your profile.</h1>
+      <p>Fill out the form below and we'll have your documents to you within 24 hours.</p>
+    </div>
+
+    <div class="form-card">
+      <h2>Submit your content links</h2>
+      <p class="form-intro">
+        Share links to anything that represents how you actually think and communicate —
+        interviews, podcast appearances, articles, newsletters. The more variety, the richer the profile.
+      </p>
+
+      <!--
+        Replace YOUR_FORMSPREE_ID with your actual Formspree form ID.
+        Sign up free at formspree.io → create a form → copy the ID from the action URL.
+      -->
+      <form id="order-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            Email address
+            <span class="hint">— where we'll send your documents</span>
+          </label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="links">
+            Content links
+            <span class="hint">— one per line</span>
+          </label>
+          <textarea
+            id="links"
+            name="links"
+            required
+            placeholder="https://youtube.com/watch?v=...&#10;https://yoursite.com/article-title&#10;https://podcast.com/episode/..."
+          ></textarea>
+          <p class="form-hint">
+            YouTube interviews, podcast episodes, published articles, newsletters — anything where
+            you're speaking or writing in your real voice. 5 links minimum recommended.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">
+            Anything else we should know
+            <span class="hint">— optional</span>
+          </label>
+          <input
+            type="text"
+            id="notes"
+            name="notes"
+            placeholder="e.g. I write for a technical audience, or I want the profile focused on LinkedIn content"
+          />
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Submit my links →</button>
+        <p class="privacy-note">Your content is only used to build your voice profile. We don't store or share it.</p>
+
+      </form>
+
+      <div class="form-success" id="form-success">
+        <div class="checkmark" style="background:var(--success-bg);color:var(--success);">✓</div>
+        <h3>Links received.</h3>
+        <p>We'll have your Voice Profile Document and Voice Starter Prompt in your inbox within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="what-next">
+      <h3>What happens next</h3>
+      <div class="next-steps">
+        <div class="next-step">
+          <span class="next-step-num">1</span>
+          <p><strong>We read everything.</strong> We go through your content as a linguist — looking for the patterns that make your communication uniquely yours.</p>
+        </div>
+        <div class="next-step">
+          <span class="next-step-num">2</span>
+          <p><strong>We build both documents.</strong> The Voice Profile Document captures your style in depth. The Voice Starter Prompt distills it to one copy-paste paragraph.</p>
+        </div>
+        <div class="next-step">
+          <span class="next-step-num">3</span>
+          <p><strong>We email them to you.</strong> Within 24 hours. Drop the prompt into any AI tool and you're ready to go.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 My Voice Profile</p>
+      <p>Questions? <a href="mailto:hello@myvoiceprofile.com">hello@myvoiceprofile.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var form = document.getElementById('order-form');
+    var success = document.getElementById('form-success');
+    var btn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      })
+      .catch(function () {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      });
+    });
+  </script>
+
+</body>
+</html>
