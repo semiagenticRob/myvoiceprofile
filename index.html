@@ -189,14 +189,15 @@
     .hero-image-col img {
       position: absolute;
       bottom: 0;
-      right: 0;
-      height: 115%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
       width: auto;
       max-width: none;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%, black 80%, transparent 100%),
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
                           linear-gradient(to top, transparent 0%, black 6%);
       -webkit-mask-composite: source-in;
-      mask-image: linear-gradient(to right, transparent 0%, black 22%, black 80%, transparent 100%),
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
                   linear-gradient(to top, transparent 0%, black 6%);
       mask-composite: intersect;
     }
