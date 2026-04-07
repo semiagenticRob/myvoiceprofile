@@ -462,6 +462,21 @@
       border-radius: 20px;
     }
 
+    .pricing-img-wrap {
+      margin: -28px -24px 20px;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+
+    .pricing-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
     .pricing-card h3 {
       font-family: 'Lora', serif;
       font-size: 1.125rem;
@@ -902,6 +917,9 @@
       <div class="pricing-grid">
 
         <div class="pricing-card">
+          <div class="pricing-img-wrap">
+            <img src="assets/product-starter.jpg" alt="Voice Starter — Voice Profile Document" />
+          </div>
           <h3>Voice Starter</h3>
           <div class="price">$47 <span>one time</span></div>
           <ul class="pricing-features">
@@ -915,6 +933,9 @@
 
         <div class="pricing-card featured">
           <span class="featured-badge">Most popular</span>
+          <div class="pricing-img-wrap">
+            <img src="assets/product-pro.jpg" alt="Voice Pro — Voice Profile Document + Starter Prompt" />
+          </div>
           <h3>Voice Pro</h3>
           <div class="price">$97 <span>one time</span></div>
           <ul class="pricing-features">
